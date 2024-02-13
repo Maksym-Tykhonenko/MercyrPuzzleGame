@@ -6,8 +6,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import HomeScreen from './screens/HomeScreen';
 import LvlSelectionScreen from './screens/LvlSelectionScreen';
-
 import RulseScreen from './screens/RulseScreen';
+import LvlFirstMarcyry from './screens/LvlFirstMarcyry';
+import LvlSecondVenus from './screens/LvlSecondVenus';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +29,16 @@ const App = () => {
         <Stack.Screen
           name="Rulse"
           component={RulseScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="LvlFirstMarcyry"
+          component={LvlFirstMarcyry}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="LvlSecondVenus"
+          component={LvlSecondVenus}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

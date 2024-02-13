@@ -23,7 +23,10 @@ const LvlSelectionScreen = ({navigation}) => {
           {/**LVL`s Block */}
           <View style={{marginHorizontal: 10, marginTop: 30}}>
             <ScrollView>
+              {/**MARCYRY Lvl*/}
               <TouchableOpacity
+                onPress={() => navigation.navigate('LvlFirstMarcyry')}
+                activeOpacity={0.8}
                 style={{
                   backgroundColor: 'rgba(0, 0, 0, 0.7)',
                   width: '100%',
@@ -51,6 +54,10 @@ const LvlSelectionScreen = ({navigation}) => {
               </TouchableOpacity>
 
               <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('LvlSecondVenus');
+                }}
+                activeOpacity={0.8}
                 style={{
                   backgroundColor: 'rgba(0, 0, 0, 0.7)',
                   width: '100%',
@@ -78,6 +85,7 @@ const LvlSelectionScreen = ({navigation}) => {
               </TouchableOpacity>
 
               <TouchableOpacity
+                activeOpacity={0.8}
                 style={{
                   backgroundColor: 'rgba(0, 0, 0, 0.7)',
                   width: '100%',
@@ -105,6 +113,7 @@ const LvlSelectionScreen = ({navigation}) => {
               </TouchableOpacity>
 
               <TouchableOpacity
+                activeOpacity={0.8}
                 style={{
                   backgroundColor: 'rgba(0, 0, 0, 0.7)',
                   width: '100%',
@@ -132,6 +141,7 @@ const LvlSelectionScreen = ({navigation}) => {
               </TouchableOpacity>
 
               <TouchableOpacity
+                activeOpacity={0.8}
                 style={{
                   backgroundColor: 'rgba(0, 0, 0, 0.7)',
                   width: '100%',
@@ -159,6 +169,7 @@ const LvlSelectionScreen = ({navigation}) => {
               </TouchableOpacity>
 
               <TouchableOpacity
+                activeOpacity={0.8}
                 style={{
                   backgroundColor: 'rgba(0, 0, 0, 0.7)',
                   width: '100%',
@@ -186,6 +197,7 @@ const LvlSelectionScreen = ({navigation}) => {
               </TouchableOpacity>
 
               <TouchableOpacity
+                activeOpacity={0.8}
                 style={{
                   backgroundColor: 'rgba(0, 0, 0, 0.7)',
                   width: '100%',
@@ -213,6 +225,7 @@ const LvlSelectionScreen = ({navigation}) => {
               </TouchableOpacity>
 
               <TouchableOpacity
+                activeOpacity={0.8}
                 style={{
                   backgroundColor: 'rgba(0, 0, 0, 0.7)',
                   width: '100%',
@@ -245,8 +258,8 @@ const LvlSelectionScreen = ({navigation}) => {
           <TouchableOpacity
             style={{
               position: 'absolute',
-              bottom: 0,
-              right: 0,
+              bottom: 10,
+              right: 10,
               alignItems: 'center',
               justifyContent: 'center',
               borderWidth: 3,

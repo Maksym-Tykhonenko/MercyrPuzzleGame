@@ -8,6 +8,7 @@ const HomeScreen = ({navigation}) => {
         source={require('../assets/bgr1.jpeg')}
         style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <TouchableOpacity
+          activeOpacity={0.6}
           style={{
             borderWidth: 3,
             borderColor: '#e2e7ea',
@@ -27,6 +28,7 @@ const HomeScreen = ({navigation}) => {
         </TouchableOpacity>
 
         <TouchableOpacity
+          activeOpacity={0.6}
           style={{
             borderWidth: 3,
             borderColor: '#e2e7ea',

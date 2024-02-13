@@ -11,8 +11,8 @@ const RulseScreen = ({navigation}) => {
           <TouchableOpacity
             style={{
               position: 'absolute',
-              bottom: 0,
-              right: 0,
+              bottom: 10,
+              right: 10,
               alignItems: 'center',
               justifyContent: 'center',
               borderWidth: 3,
