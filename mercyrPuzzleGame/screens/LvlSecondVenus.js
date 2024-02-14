@@ -7,8 +7,9 @@ import {
   Image,
   Alert,
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const LvlSecondVenus = () => {
+const LvlSecondVenus = ({navigation}) => {
   const [board, setBoard] = useState([
     {id: 1, image: require('../assets/Venus/image_part_001.jpg')},
     {id: 2, image: require('../assets/Venus/image_part_002.jpg')},
@@ -31,6 +32,46 @@ const LvlSecondVenus = () => {
     },
   ]);
 
+  //
+  //AsyncStorage logick
+  const [earthAnlock, setEarthAnlock] = useState(true);
+  console.log('earthAnlock===>', earthAnlock);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  useEffect(() => {
+    setData();
+  }, [earthAnlock]);
+
+  const setData = async () => {
+    try {
+      const data = {
+        earthAnlock,
+      };
+      const jsonData = JSON.stringify(data);
+      await AsyncStorage.setItem('LvlSecondVenus', jsonData);
+      console.log('Дані збережено в AsyncStorage');
+    } catch (e) {
+      console.log('Помилка збереження даних:', e);
+    }
+  };
+
+  const getData = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem('LvlSecondVenus');
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        console.log('parsedData==>', parsedData);
+        setEarthAnlock(parsedData.earthAnlock);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  //////////////////////////////////
+
   const [emptyIndex, setEmptyIndex] = useState(0);
   console.log(emptyIndex);
 
@@ -48,9 +89,9 @@ const LvlSecondVenus = () => {
     if (firtRender) {
       setFirtRender(false);
     } else if (isBoardSolved()) {
-      Alert.alert('Ты победил!');
+      //Alert.alert('Ты победил!');
       setComplited(true);
-      addAnlocadLvl();
+      setEarthAnlock(true);
     }
   }, []);
   /////////////////////////////
@@ -100,7 +141,7 @@ const LvlSecondVenus = () => {
     return true;
   };
   ///Timer
-  const [timer, setTimer] = useState(360);
+  const [timer, setTimer] = useState(600);
   const [isRuning, setIsRuning] = useState(false);
   const [btnIsVisible, setBtnIsVisible] = useState(false);
   //эфект обратного отщета времени
@@ -249,11 +290,16 @@ const LvlSecondVenus = () => {
               </TouchableOpacity>
             ))}
           </View>
+          <View>
+            <Text style={{color: '#e2e7ea', fontWeight: 'bold', fontSize: 20}}>
+              VENUS
+            </Text>
+          </View>
           <View style={{flexDirection: 'row'}}>
             <Image
               style={{
                 marginLeft: 0,
-                marginTop: 20,
+                //marginTop: 20,
                 width: 200,
                 height: 200,
                 borderWidth: 1,
@@ -284,6 +330,58 @@ const LvlSecondVenus = () => {
             <Text style={{color: '#fff'}}>GO</Text>
             <Text style={{color: '#fff'}}>BACK</Text>
           </TouchableOpacity>
+
+          {/**BTN go to next lvl */}
+          {earthAnlock && (
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('LvlSecondEarth');
+              }}
+              activeOpacity={0.6}
+              style={{
+                position: 'absolute',
+                width: 250,
+                height: 150,
+                borderColor: '#e2e7ea',
+                borderWidth: 3,
+                marginTop: '50%',
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 10,
+                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+              }}>
+              <Text
+                style={{
+                  color: '#e2e7ea',
+                  fontSize: 18,
+                  fontWeight: '700',
+                  marginBottom: 5,
+                }}>
+                CONGRAT!!!
+              </Text>
+              <Text
+                style={{
+                  color: '#e2e7ea',
+                  fontSize: 18,
+                  fontWeight: '700',
+                  marginBottom: 5,
+                }}>
+                YOU ARE WIN
+              </Text>
+              <Text
+                style={{
+                  color: '#e2e7ea',
+                  fontSize: 18,
+                  fontWeight: '700',
+                  marginBottom: 5,
+                }}>
+                PRESS HIRE ADN GO
+              </Text>
+              <Text style={{color: '#e2e7ea', fontSize: 18, fontWeight: '700'}}>
+                TO NEXT LVL
+              </Text>
+            </TouchableOpacity>
+          )}
         </View>
       </ImageBackground>
     </View>

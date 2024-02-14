@@ -9,23 +9,23 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const LvlFirstMarcyry = ({navigation}) => {
+const LvlFifthJupiter = ({navigation}) => {
   const [board, setBoard] = useState([
-    {id: 1, image: require('../assets/marcyry/image_part_001.jpg')},
-    {id: 2, image: require('../assets/marcyry/image_part_002.jpg')},
-    {id: 3, image: require('../assets/marcyry/image_part_003.jpg')},
-    {id: 4, image: require('../assets/marcyry/image_part_004.jpg')},
-    {id: 5, image: require('../assets/marcyry/image_part_005.jpg')},
-    {id: 6, image: require('../assets/marcyry/image_part_006.jpg')},
-    {id: 7, image: require('../assets/marcyry/image_part_007.jpg')},
-    {id: 8, image: require('../assets/marcyry/image_part_008.jpg')},
-    {id: 9, image: require('../assets/marcyry/image_part_009.jpg')},
-    {id: 10, image: require('../assets/marcyry/image_part_010.jpg')},
-    {id: 11, image: require('../assets/marcyry/image_part_011.jpg')},
-    {id: 12, image: require('../assets/marcyry/image_part_012.jpg')},
-    {id: 13, image: require('../assets/marcyry/image_part_013.jpg')},
-    {id: 14, image: require('../assets/marcyry/image_part_014.jpg')},
-    {id: 15, image: require('../assets/marcyry/image_part_015.jpg')},
+    {id: 1, image: require('../assets/Jupiter/image_part_001.jpg')},
+    {id: 2, image: require('../assets/Jupiter/image_part_002.jpg')},
+    {id: 3, image: require('../assets/Jupiter/image_part_003.jpg')},
+    {id: 4, image: require('../assets/Jupiter/image_part_004.jpg')},
+    {id: 5, image: require('../assets/Jupiter/image_part_005.jpg')},
+    {id: 6, image: require('../assets/Jupiter/image_part_006.jpg')},
+    {id: 7, image: require('../assets/Jupiter/image_part_007.jpg')},
+    {id: 8, image: require('../assets/Jupiter/image_part_008.jpg')},
+    {id: 9, image: require('../assets/Jupiter/image_part_009.jpg')},
+    {id: 10, image: require('../assets/Jupiter/image_part_010.jpg')},
+    {id: 11, image: require('../assets/Jupiter/image_part_011.jpg')},
+    {id: 12, image: require('../assets/Jupiter/image_part_012.jpg')},
+    {id: 13, image: require('../assets/Jupiter/image_part_013.jpg')},
+    {id: 14, image: require('../assets/Jupiter/image_part_014.jpg')},
+    {id: 15, image: require('../assets/Jupiter/image_part_015.jpg')},
     {
       id: 16,
       image: require('../assets/whait.jpeg'),
@@ -33,8 +33,8 @@ const LvlFirstMarcyry = ({navigation}) => {
   ]);
 
   //AsyncStorage logick
-  const [venusAnlock, setVenusAnlock] = useState(false);
-  console.log('venusAnlock===>', venusAnlock);
+  const [saturnAnlock, setSaturnAnlock] = useState(false);
+  console.log('saturnAnlock===>', saturnAnlock);
 
   useEffect(() => {
     getData();
@@ -42,15 +42,15 @@ const LvlFirstMarcyry = ({navigation}) => {
 
   useEffect(() => {
     setData();
-  }, [venusAnlock]);
+  }, [saturnAnlock]);
 
   const setData = async () => {
     try {
       const data = {
-        venusAnlock,
+        saturnAnlock,
       };
       const jsonData = JSON.stringify(data);
-      await AsyncStorage.setItem('LvlFirstMarcyry', jsonData);
+      await AsyncStorage.setItem('LvlFifthJupiter', jsonData);
       console.log('Дані збережено в AsyncStorage');
     } catch (e) {
       console.log('Помилка збереження даних:', e);
@@ -59,11 +59,11 @@ const LvlFirstMarcyry = ({navigation}) => {
 
   const getData = async () => {
     try {
-      const jsonData = await AsyncStorage.getItem('LvlFirstMarcyry');
+      const jsonData = await AsyncStorage.getItem('LvlFifthJupiter');
       if (jsonData !== null) {
         const parsedData = JSON.parse(jsonData);
         console.log('parsedData==>', parsedData);
-        setVenusAnlock(parsedData.venusAnlock);
+        setSaturnAnlock(parsedData.saturnAnlock);
       }
     } catch (e) {
       console.log('Помилка отримання даних:', e);
@@ -72,7 +72,8 @@ const LvlFirstMarcyry = ({navigation}) => {
   //////////////////////////////////
 
   const [emptyIndex, setEmptyIndex] = useState(0);
-  //console.log(emptyIndex);
+  console.log(emptyIndex);
+
   const [firtRender, setFirtRender] = useState(true);
   const [complited, setComplited] = useState(false);
 
@@ -89,7 +90,7 @@ const LvlFirstMarcyry = ({navigation}) => {
     } else if (isBoardSolved()) {
       //Alert.alert('Ты победил!');
       setComplited(true);
-      setVenusAnlock(true);
+      setSaturnAnlock(true);
     }
   }, []);
   /////////////////////////////
@@ -290,21 +291,21 @@ const LvlFirstMarcyry = ({navigation}) => {
           </View>
           <View>
             <Text style={{color: '#e2e7ea', fontWeight: 'bold', fontSize: 20}}>
-              MARCYRY
+              JUPITER
             </Text>
           </View>
           <View style={{flexDirection: 'row'}}>
             <Image
               style={{
                 marginLeft: 0,
-                //marginTop: 10,
+                //marginTop: 20,
                 width: 200,
                 height: 200,
                 borderWidth: 1,
                 borderColor: '#e2e7ea',
                 justifyContent: 'flex-start',
               }}
-              source={require('../assets/planats/mercury.jpeg')}
+              source={require('../assets/planats/Jupiter.jpeg')}
             />
           </View>
           {/**BTN back */}
@@ -330,10 +331,10 @@ const LvlFirstMarcyry = ({navigation}) => {
           </TouchableOpacity>
 
           {/**BTN go to next lvl */}
-          {venusAnlock && (
+          {saturnAnlock && (
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('LvlSecondVenus');
+                navigation.navigate('LvlSixthSaturn');
               }}
               activeOpacity={0.6}
               style={{
@@ -386,4 +387,4 @@ const LvlFirstMarcyry = ({navigation}) => {
   );
 };
 
-export default LvlFirstMarcyry;
+export default LvlFifthJupiter;
