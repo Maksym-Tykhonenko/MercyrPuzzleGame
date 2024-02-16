@@ -290,7 +290,7 @@ const LvlFirstMarcyry = ({navigation}) => {
           </View>
           <View>
             <Text style={{color: '#e2e7ea', fontWeight: 'bold', fontSize: 20}}>
-              MARCYRY
+              MERCUR
             </Text>
           </View>
           <View style={{flexDirection: 'row'}}>

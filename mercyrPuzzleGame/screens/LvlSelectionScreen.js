@@ -177,7 +177,7 @@ const LvlSelectionScreen = ({navigation}) => {
                 />
                 <Text
                   style={{color: '#e2e7ea', fontWeight: '700', fontSize: 18}}>
-                  Marcyry
+                  Mercur
                 </Text>
               </TouchableOpacity>
 
