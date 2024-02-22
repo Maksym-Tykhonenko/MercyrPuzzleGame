@@ -1,5 +1,5 @@
-import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import React, {useState, useEffect, useRef} from 'react';
+import {Text, TouchableOpacity, View, Animated, Image} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -20,75 +20,124 @@ import LvlEighthNeptun from './screens/LvlEighthNeptun';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+  ///////// Loader
+  const [loaderIsLoaded, setLoaderIsLoaded] = useState(false);
+  const ChangeInView = props => {
+    const appearingAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 1 to 0
+    useEffect(() => {
+      Animated.timing(appearingAnim, {
+        toValue: 1,
+        duration: 6000,
+        useNativeDriver: true,
+      }).start();
+
+      setTimeout(() => {
+        setLoaderIsLoaded(true);
+      }, 8000);
+    }, []);
+
+    return (
+      <View style={{position: 'relative', flex: 1}}>
+        <Image
+          style={{
+            ...props.style,
+
+            height: '100%',
+            position: 'absolute', // Bind opacity to animated value
+          }}
+          source={require('./assets/updDiz/backgr_1.jpg')}
+        />
+        <Animated.Image
+          source={require('./assets/updDiz/loader.jpg')} // Special animatable View
+          style={{
+            ...props.style,
+            opacity: appearingAnim,
+            height: '100%',
+            position: 'absolute', // Bind opacity to animated value
+          }}
+        />
+      </View>
+    );
+  };
+
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{headerShown: false}}
-        />
+      {!loaderIsLoaded ? (
+        <ChangeInView
+          style={{
+            width: '100%',
+            //height: 50,
+            backgroundColor: 'powderblue',
+          }}></ChangeInView>
+      ) : (
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{headerShown: false}}
+          />
 
-        <Stack.Screen
-          name="LvlSelection"
-          component={LvlSelectionScreen}
-          options={{headerShown: false}}
-        />
+          <Stack.Screen
+            name="LvlSelection"
+            component={LvlSelectionScreen}
+            options={{headerShown: false}}
+          />
 
-        <Stack.Screen
-          name="Rulse"
-          component={RulseScreen}
-          options={{headerShown: false}}
-        />
+          <Stack.Screen
+            name="Rulse"
+            component={RulseScreen}
+            options={{headerShown: false}}
+          />
 
-        <Stack.Screen
-          name="LvlFirstMarcyry"
-          component={LvlFirstMarcyry}
-          options={{headerShown: false}}
-        />
+          <Stack.Screen
+            name="LvlFirstMarcyry"
+            component={LvlFirstMarcyry}
+            options={{headerShown: false}}
+          />
 
-        <Stack.Screen
-          name="LvlSecondVenus"
-          component={LvlSecondVenus}
-          options={{headerShown: false}}
-        />
+          <Stack.Screen
+            name="LvlSecondVenus"
+            component={LvlSecondVenus}
+            options={{headerShown: false}}
+          />
 
-        <Stack.Screen
-          name="LvlSecondEarth"
-          component={LvlSecondEarth}
-          options={{headerShown: false}}
-        />
+          <Stack.Screen
+            name="LvlSecondEarth"
+            component={LvlSecondEarth}
+            options={{headerShown: false}}
+          />
 
-        <Stack.Screen
-          name="LvlFourthMars"
-          component={LvlFourthMars}
-          options={{headerShown: false}}
-        />
+          <Stack.Screen
+            name="LvlFourthMars"
+            component={LvlFourthMars}
+            options={{headerShown: false}}
+          />
 
-        <Stack.Screen
-          name="LvlFifthJupiter"
-          component={LvlFifthJupiter}
-          options={{headerShown: false}}
-        />
+          <Stack.Screen
+            name="LvlFifthJupiter"
+            component={LvlFifthJupiter}
+            options={{headerShown: false}}
+          />
 
-        <Stack.Screen
-          name="LvlSixthSaturn"
-          component={LvlSixthSaturn}
-          options={{headerShown: false}}
-        />
+          <Stack.Screen
+            name="LvlSixthSaturn"
+            component={LvlSixthSaturn}
+            options={{headerShown: false}}
+          />
 
-        <Stack.Screen
-          name="LvlSeventhUran"
-          component={LvlSeventhUran}
-          options={{headerShown: false}}
-        />
+          <Stack.Screen
+            name="LvlSeventhUran"
+            component={LvlSeventhUran}
+            options={{headerShown: false}}
+          />
 
-        <Stack.Screen
-          name="LvlEighthNeptun"
-          component={LvlEighthNeptun}
-          options={{headerShown: false}}
-        />
-      </Stack.Navigator>
+          <Stack.Screen
+            name="LvlEighthNeptun"
+            component={LvlEighthNeptun}
+            options={{headerShown: false}}
+          />
+        </Stack.Navigator>
+      )}
     </NavigationContainer>
   );
 };

@@ -192,7 +192,7 @@ const LvlSecondVenus = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../assets/bgr1.jpeg')}
+        source={require('../assets/updDiz/backgr_2.jpg')}
         style={{flex: 1}}>
         <View
           style={{
@@ -202,6 +202,13 @@ const LvlSecondVenus = ({navigation}) => {
             alignItems: 'center',
             //justifyContent: 'center',
           }}>
+          {/** LOGO */}
+          <View style={{alignItems: 'center', marginBottom: 10}}>
+            <Image
+              source={require('../assets/updDiz/MerkurGames.png')}
+              style={{width: 200, height: 60}}
+            />
+          </View>
           {/**Timer */}
           <View style={{flexDirection: 'row', marginBottom: 20}}>
             {isRuning ? (
@@ -210,9 +217,9 @@ const LvlSecondVenus = ({navigation}) => {
                   marginRight: 10,
                   color: '#000205',
                   borderWidth: 1,
-                  borderColor: '#e2e7ea',
+                  borderColor: '#ffcd00',
                   //borderRadius: 20,
-                  color: '#e2e7ea',
+                  color: '#ffcd00',
                   paddingLeft: 10,
                   paddingRight: 10,
                   backgroundColor: 'rgba(0, 0, 0, 0.7)',
@@ -221,7 +228,7 @@ const LvlSecondVenus = ({navigation}) => {
                   alignItems: 'center',
                 }}
                 onPress={handleChangeTimerRunState}>
-                <Text style={{color: '#e2e7ea', fontSize: 25}}>Stop</Text>
+                <Text style={{color: '#ffcd00', fontSize: 25}}>Stop</Text>
               </TouchableOpacity>
             ) : (
               <TouchableOpacity
@@ -229,9 +236,9 @@ const LvlSecondVenus = ({navigation}) => {
                   marginRight: 10,
                   color: '#000205',
                   borderWidth: 1,
-                  borderColor: '#e2e7ea',
+                  borderColor: '#ffcd00',
                   //borderRadius: 20,
-                  color: '#e2e7ea',
+                  color: '#ffcd00',
                   paddingLeft: 12,
                   paddingRight: 12,
                   backgroundColor: 'rgba(0, 0, 0, 0.7)',
@@ -240,7 +247,7 @@ const LvlSecondVenus = ({navigation}) => {
                   alignItems: 'center',
                 }}
                 onPress={handleChangeTimerRunState}>
-                <Text style={{color: '#e2e7ea', fontSize: 25}}>Play</Text>
+                <Text style={{color: '#ffcd00', fontSize: 25}}>Play</Text>
               </TouchableOpacity>
             )}
 
@@ -249,9 +256,9 @@ const LvlSecondVenus = ({navigation}) => {
                 fontSize: 40,
                 color: '#000205',
                 borderWidth: 1,
-                borderColor: '#e2e7ea',
+                borderColor: '#ffcd00',
                 //borderRadius: 20,
-                color: '#e2e7ea',
+                color: '#ffcd00',
                 paddingLeft: 10,
                 paddingRight: 10,
                 backgroundColor: 'rgba(0, 0, 0, 0.7)',
@@ -272,7 +279,7 @@ const LvlSecondVenus = ({navigation}) => {
               borderBottomWidth: 10,
               //borderTopLeftRadius: 50,
               //borderTopRightRadius: 50,
-              borderColor: '#e2e7ea',
+              borderColor: '#ffcd00',
             }}>
             {board.map((piece, index) => (
               <TouchableOpacity
@@ -291,7 +298,7 @@ const LvlSecondVenus = ({navigation}) => {
             ))}
           </View>
           <View>
-            <Text style={{color: '#e2e7ea', fontWeight: 'bold', fontSize: 20}}>
+            <Text style={{color: '#ffcd00', fontWeight: 'bold', fontSize: 20}}>
               VENUS
             </Text>
           </View>
@@ -303,7 +310,7 @@ const LvlSecondVenus = ({navigation}) => {
                 width: 200,
                 height: 200,
                 borderWidth: 1,
-                borderColor: '#e2e7ea',
+                borderColor: '#ffcd00',
                 justifyContent: 'flex-start',
               }}
               source={require('../assets/planats/Venus.jpeg')}
@@ -318,7 +325,7 @@ const LvlSecondVenus = ({navigation}) => {
               alignItems: 'center',
               justifyContent: 'center',
               borderWidth: 3,
-              borderColor: '#e2e7ea',
+              borderColor: '#ffcd00',
               width: 60,
               height: 60,
               borderRadius: 10,
@@ -327,8 +334,8 @@ const LvlSecondVenus = ({navigation}) => {
             onPress={() => {
               navigation.navigate('Home');
             }}>
-            <Text style={{color: '#fff'}}>GO</Text>
-            <Text style={{color: '#fff'}}>BACK</Text>
+            <Text style={{color: '#ffcd00'}}>GO</Text>
+            <Text style={{color: '#ffcd00'}}>BACK</Text>
           </TouchableOpacity>
 
           {/**BTN go to next lvl */}
@@ -342,7 +349,7 @@ const LvlSecondVenus = ({navigation}) => {
                 position: 'absolute',
                 width: 250,
                 height: 150,
-                borderColor: '#e2e7ea',
+                borderColor: '#ffcd00',
                 borderWidth: 3,
                 marginTop: '50%',
                 justifyContent: 'center',
@@ -352,7 +359,7 @@ const LvlSecondVenus = ({navigation}) => {
               }}>
               <Text
                 style={{
-                  color: '#e2e7ea',
+                  color: '#ffcd00',
                   fontSize: 18,
                   fontWeight: '700',
                   marginBottom: 5,
@@ -361,7 +368,7 @@ const LvlSecondVenus = ({navigation}) => {
               </Text>
               <Text
                 style={{
-                  color: '#e2e7ea',
+                  color: '#ffcd00',
                   fontSize: 18,
                   fontWeight: '700',
                   marginBottom: 5,
@@ -370,14 +377,14 @@ const LvlSecondVenus = ({navigation}) => {
               </Text>
               <Text
                 style={{
-                  color: '#e2e7ea',
+                  color: '#ffcd00',
                   fontSize: 18,
                   fontWeight: '700',
                   marginBottom: 5,
                 }}>
                 PRESS HIRE ADN GO
               </Text>
-              <Text style={{color: '#e2e7ea', fontSize: 18, fontWeight: '700'}}>
+              <Text style={{color: '#ffcd00', fontSize: 18, fontWeight: '700'}}>
                 TO NEXT LVL
               </Text>
             </TouchableOpacity>
